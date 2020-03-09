@@ -1,3 +1,4 @@
+/*
 import tuwien.auto.calimero.*;
 import tuwien.auto.calimero.cemi.CEMILData;
 import tuwien.auto.calimero.knxnetip.KNXnetIPConnection;
@@ -18,6 +19,7 @@ import static tuwien.auto.calimero.link.medium.TPSettings.TP1;
 //WIFI Esir-Maquette114
 
 public class KNX {
+
 
     private InetSocketAddress local;
     private InetSocketAddress server;
@@ -134,4 +136,8 @@ public class KNX {
 
 
 
+
 }
+
+
+ */
