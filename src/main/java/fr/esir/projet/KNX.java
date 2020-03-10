@@ -1,7 +1,7 @@
-/*
+package fr.esir.projet;
+
 import tuwien.auto.calimero.*;
 import tuwien.auto.calimero.cemi.CEMILData;
-import tuwien.auto.calimero.knxnetip.KNXnetIPConnection;
 import tuwien.auto.calimero.link.KNXLinkClosedException;
 import tuwien.auto.calimero.link.KNXNetworkLink;
 import tuwien.auto.calimero.link.KNXNetworkLinkIP;
@@ -130,14 +130,8 @@ public class KNX {
                     deconnection();
                 }
             }
-
-
+            
     }
-
-
-
 
 }
 
-
- */
