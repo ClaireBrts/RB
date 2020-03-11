@@ -27,8 +27,12 @@ public class KNX {
     private KNXNetworkLink knxLink;
 
     private ProcessCommunicator pc;
-    private boolean stopChenillard;
-    private int onLight; //determine si les lumieres sont allumes (true) ou eteinte (false)
+    private int button1;
+    private int button2;
+    private int button3;
+    private int button4;
+
+    private Chenillard chenillard;
 
     public KNX(String localAdress, String destAdress, int port) throws KNXException, InterruptedException {
         local = new InetSocketAddress(localAdress, port);
@@ -41,50 +45,92 @@ public class KNX {
 
         pc = new ProcessCommunicatorImpl(knxLink);
         allLightOff();
-        onLight=0;
 
+        button1 = 0;
+        button2 = 0;
+        button3 = 0;
+        button4 = 0;
 
-        knxLink.addLinkListener(new NetworkLinkListener(){
+        chenillard = new Chenillard(pc, 400, false, 1);
+
+        knxLink.addLinkListener(new NetworkLinkListener() {
             public void confirmation(FrameEvent arg0) {
             }
 
             public void indication(FrameEvent arg0) {
 
-                if(((CEMILData)arg0.getFrame()).getDestination().toString().equals("1/0/3")){
-                    onLight++;
-                }
-                if(onLight==2){
-                    try {
-                        allLightOn();
-                    } catch (KNXFormatException e) {
-                        e.printStackTrace();
-                    } catch (KNXTimeoutException e) {
-                        e.printStackTrace();
-                    } catch (KNXLinkClosedException e) {
-                        e.printStackTrace();
-                    }
-                }
-                if(onLight==4){
-
-                    try {
-                        allLightOff();
-
-                    } catch (KNXFormatException e) {
-                        e.printStackTrace();
-                    } catch (KNXTimeoutException e) {
-                        e.printStackTrace();
-                    } catch (KNXLinkClosedException e) {
-                        e.printStackTrace();
-                    }
-                    onLight=0;
-                }
-
                 //System.out.println("targetadress " + ((CEMILData)arg0.getFrame()).getDestination());
+                System.out.println(button1);
+
+                if (((CEMILData) arg0.getFrame()).getDestination().toString().equals("1/0/1")) {
+                    button1++;
+                }
+                //Premier appui donc lance l'action
+                if (button1 == 2) {
+                    chenillard.start();
+                    System.out.println("start chenillard");
+
+                }
+                //Deuxième appui donc stop l'action
+                if (button1 == 4) {
+                    System.out.println("deco chenillard");
+                    chenillard.chenPause();
+                    deconnection();
+                    button1 = 0;
+                }
+                if (((CEMILData) arg0.getFrame()).getDestination().toString().equals("1/0/1")) {
+                    button1++;
+                }
+
+                if (button1 == 2) {
+                    chenillard.start();
+                    System.out.println("start chenillard");
+
+                }
+
+                if (button1 == 4) {
+                    System.out.println("deco chenillard");
+                    chenillard.chenPause();
+                    deconnection();
+                    button1 = 0;
+                }
+                if (((CEMILData) arg0.getFrame()).getDestination().toString().equals("1/0/1")) {
+                    button1++;
+                }
+
+                if (button1 == 2) {
+                    chenillard.start();
+                    System.out.println("start chenillard");
+
+                }
+
+                if (button1 == 4) {
+                    System.out.println("deco chenillard");
+                    chenillard.chenPause();
+                    deconnection();
+                    button1 = 0;
+                }
+                if (((CEMILData) arg0.getFrame()).getDestination().toString().equals("1/0/1")) {
+                    button1++;
+                }
+
+                if (button1 == 2) {
+                    chenillard.start();
+                    System.out.println("start chenillard");
+
+                }
+                
+                if (button1 == 4) {
+                    System.out.println("deco chenillard");
+                    chenillard.chenPause();
+                    deconnection();
+                    button1 = 0;
+                }
+
             }
 
             public void linkClosed(CloseEvent arg0) {
                 System.out.println("linkclosed");
-
             }
 
         });
@@ -109,28 +155,6 @@ public class KNX {
         pc.write(new GroupAddress("0/0/3"), false);
         pc.write(new GroupAddress("0/0/4"), false);
 
-    }
-
-    public void chenillard() throws KNXFormatException, KNXTimeoutException, KNXLinkClosedException {
-        stopChenillard=false;
-        int i =1;
-            while (!stopChenillard) {
-                try {
-                    pc.write(new GroupAddress("0/0/" + i), true);
-                    TimeUnit.MILLISECONDS.sleep(700);
-                    pc.write(new GroupAddress("0/0/" + i), false);
-                    TimeUnit.MILLISECONDS.sleep(700);
-                    i++;
-                    if(i==5){
-                        i=0;
-                    }
-                } catch (InterruptedException e) {
-                    System.out.println("Fin chenillard");
-                    stopChenillard = true;
-                    deconnection();
-                }
-            }
-            
     }
 
 }
