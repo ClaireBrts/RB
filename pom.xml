@@ -16,10 +16,53 @@
             </dependency>
 
             <dependency>
-                <groupId>com.itextpdf</groupId>
-                <artifactId>itextpdf</artifactId>
-                <version>5.5.13.1</version>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-server</artifactId>
+                <version>9.4.27.v20200227</version>
             </dependency>
+            <dependency>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-servlet</artifactId>
+                <version>9.4.27.v20200227</version>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.ws.rs</groupId>
+                <artifactId>javax.ws.rs-api</artifactId>
+                <version>2.1</version>
+            </dependency>
+            <dependency>
+                <groupId>com.sun.jersey</groupId>
+                <artifactId>jersey-core</artifactId>
+                <version>1.19.4</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.sun.jersey</groupId>
+                <artifactId>jersey-servlet</artifactId>
+                <version>1.19.4</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.sun.jersey</groupId>
+                <artifactId>jersey-server</artifactId>
+                <version>1.19.4</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.sun.jersey</groupId>
+                <artifactId>jersey-client</artifactId>
+                <version>1.19.4</version>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>4.0.0</version>
+                <scope>provided</scope>
+            </dependency>
+
+
             <dependency>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
@@ -40,12 +83,6 @@
                 <artifactId>maven-pmd-plugin</artifactId>
                 <version>2.5</version>
             </dependency>
-            <!--dependency>
-                <groupId>li.pitschmann</groupId>
-                <artifactId>knx-core-plugins</artifactId>
-                <version>0.0.1</version>
-                <type>pom</type>
-            </dependency-->
 
         </dependencies>
 
@@ -69,6 +106,12 @@
                         <source>1.7</source>
                         <target>1.7</target>
                     </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.eclipse.jetty</groupId>
+                    <artifactId>jetty-maven-plugin</artifactId>
+                    <version>9.4.27.v20200227</version>
                 </plugin>
             </plugins>
 
