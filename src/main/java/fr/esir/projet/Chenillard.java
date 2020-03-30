@@ -14,22 +14,22 @@ public class Chenillard extends Thread {
     private int sens;
     private ProcessCommunicator pc;
 
-    public Chenillard(ProcessCommunicator pc, int vitesse, boolean run, int sens) {
+    public Chenillard(ProcessCommunicator pc, int vitesse, int sens) {
         this.vitesse = vitesse;
-        this.run = run;
         this.sens = sens;
         this.pc = pc;
+        this.run = true;
     }
 
     @Override
     public void run() {
-        run = true;
         int i = 1;
         while (run) {
+            System.out.println("dans le while du chenillard"+ run);
             try {
                 if (sens == 1) {
                     if (i == 5) {
-                        i = 0;
+                        i = 1;
                     }
                     pc.write(new GroupAddress("0/0/" + i), true);
                     TimeUnit.MILLISECONDS.sleep(vitesse);
@@ -37,6 +37,7 @@ public class Chenillard extends Thread {
                     TimeUnit.MILLISECONDS.sleep(vitesse);
                     i++;
                 } else {
+                    System.out.println("sens inverse");
                     if (i == 0) {
                         i = 4;
                     }
@@ -60,9 +61,6 @@ public class Chenillard extends Thread {
         }
     }
 
-    public void chenPause() {
-        run = false;
-    }
 
     public void accelerer() {
         if (vitesse >= 300) {
@@ -70,11 +68,11 @@ public class Chenillard extends Thread {
         }
     }
 
-    public void relentir() {
+    public void ralentir() {
         vitesse += 100;
     }
 
-    public void ChangementSens() {
+    public void changementSens() {
         if (sens == 1) {
             sens = -1;
         } else {
@@ -82,4 +80,7 @@ public class Chenillard extends Thread {
         }
     }
 
+    public void setRun(boolean run) {
+        this.run = run;
+    }
 }

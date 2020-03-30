@@ -2,13 +2,16 @@ package fr.esir.projet;
 
 import tuwien.auto.calimero.KNXException;
 
+
 public class Main
 {
 
     public static void main(final String[] args) throws KNXException, InterruptedException {
-        KNX home=new KNX("192.168.1.103","192.168.1.202",3671);
-
+        KNX home=new KNX("192.168.1.104","192.168.1.201",3671);
+        Thread.sleep(20000);
     }
+
+
 }
 
 
