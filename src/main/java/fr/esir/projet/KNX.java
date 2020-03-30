@@ -51,7 +51,7 @@ public class KNX {
         button3 = 0;
         button4 = 0;
 
-        chenillard = new Chenillard(pc, 400, false, 1);
+
 
         knxLink.addLinkListener(new NetworkLinkListener() {
             public void confirmation(FrameEvent arg0) {
@@ -62,69 +62,62 @@ public class KNX {
                 //System.out.println("targetadress " + ((CEMILData)arg0.getFrame()).getDestination());
                 System.out.println(button1);
 
+                /**reaction au button1
+                 *
+                 */
                 if (((CEMILData) arg0.getFrame()).getDestination().toString().equals("1/0/1")) {
                     button1++;
                 }
                 //Premier appui donc lance l'action
                 if (button1 == 2) {
-                    chenillard.start();
-                    System.out.println("start chenillard");
-
+                    if(chenillard == null) {
+                        chenillard = new Chenillard(pc, 600, 1);
+                        chenillard.start();
+                    }
                 }
                 //Deuxième appui donc stop l'action
                 if (button1 == 4) {
                     System.out.println("deco chenillard");
-                    chenillard.chenPause();
-                    deconnection();
+                    chenillard.setRun(false);
+                    chenillard = null;
                     button1 = 0;
                 }
-                if (((CEMILData) arg0.getFrame()).getDestination().toString().equals("1/0/1")) {
-                    button1++;
+
+                /**reaction au button2
+                 * si button2 = 2 cela veut dire que l'utilisateur a appuié puis relaché le bouton
+                 */
+                if (((CEMILData) arg0.getFrame()).getDestination().toString().equals("1/0/2")) {
+                    button2++;
+                }
+                //Premier appui donc lance l'action
+                if (button2 == 2) {
+                    chenillard.changementSens();
+                    button2=0;
                 }
 
-                if (button1 == 2) {
-                    chenillard.start();
-                    System.out.println("start chenillard");
-
+                /**reaction au button3
+                 *
+                 */
+                if (((CEMILData) arg0.getFrame()).getDestination().toString().equals("1/0/3")) {
+                    button3++;
+                }
+                //Premier appui donc lance l'action
+                if (button3 == 2) {
+                    chenillard.accelerer();
+                    button3=0;
                 }
 
-                if (button1 == 4) {
-                    System.out.println("deco chenillard");
-                    chenillard.chenPause();
-                    deconnection();
-                    button1 = 0;
-                }
-                if (((CEMILData) arg0.getFrame()).getDestination().toString().equals("1/0/1")) {
-                    button1++;
-                }
 
-                if (button1 == 2) {
-                    chenillard.start();
-                    System.out.println("start chenillard");
-
+                /**reaction au button4
+                 *
+                 */
+                if (((CEMILData) arg0.getFrame()).getDestination().toString().equals("1/0/4")) {
+                    button4++;
                 }
-
-                if (button1 == 4) {
-                    System.out.println("deco chenillard");
-                    chenillard.chenPause();
-                    deconnection();
-                    button1 = 0;
-                }
-                if (((CEMILData) arg0.getFrame()).getDestination().toString().equals("1/0/1")) {
-                    button1++;
-                }
-
-                if (button1 == 2) {
-                    chenillard.start();
-                    System.out.println("start chenillard");
-
-                }
-                
-                if (button1 == 4) {
-                    System.out.println("deco chenillard");
-                    chenillard.chenPause();
-                    deconnection();
-                    button1 = 0;
+                //Premier appui donc lance l'action
+                if (button4 == 2) {
+                    chenillard.ralentir();
+                    button4=0;
                 }
 
             }
@@ -137,9 +130,7 @@ public class KNX {
 
     }
 
-    public void deconnection() {
-        knxLink.close();
-    }
+
 
     public void allLightOn() throws KNXFormatException, KNXTimeoutException, KNXLinkClosedException {
         pc.write(new GroupAddress("0/0/1"), true);
