@@ -1,9 +1,13 @@
 package server.rest.client;
 
-import com.sun.jersey.api.client.Client;
+
+
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 import server.dto.Employee;
+
+import com.sun.jersey.api.client.Client;
+
 
 public class JsonClient {
 
