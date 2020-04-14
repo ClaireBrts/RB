@@ -27,6 +27,8 @@ public class KNX {
     private KNXNetworkLink knxLink;
 
     private ProcessCommunicator pc;
+
+    //config des buttons
     private int button1;
     private int button2;
     private int button3;
@@ -44,7 +46,6 @@ public class KNX {
         System.out.println("Connection established to server " + knxLink.getName());
 
         pc = new ProcessCommunicatorImpl(knxLink);
-        allLightOff();
 
         button1 = 0;
         button2 = 0;
@@ -131,22 +132,6 @@ public class KNX {
     }
 
 
-
-    public void allLightOn() throws KNXFormatException, KNXTimeoutException, KNXLinkClosedException {
-        pc.write(new GroupAddress("0/0/1"), true);
-        pc.write(new GroupAddress("0/0/2"), true);
-        pc.write(new GroupAddress("0/0/3"), true);
-        pc.write(new GroupAddress("0/0/4"), true);
-
-    }
-
-    public void allLightOff() throws KNXFormatException, KNXTimeoutException, KNXLinkClosedException {
-        pc.write(new GroupAddress("0/0/1"), false);
-        pc.write(new GroupAddress("0/0/2"), false);
-        pc.write(new GroupAddress("0/0/3"), false);
-        pc.write(new GroupAddress("0/0/4"), false);
-
-    }
 
 }
 
