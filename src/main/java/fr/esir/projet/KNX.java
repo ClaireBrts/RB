@@ -127,6 +127,17 @@ public class KNX {
                 System.out.println("linkclosed");
             }
 
+
+            public void start(){
+                chenillard = new Chenillard(pc, 600, 1);
+                chenillard.start();
+            }
+
+            public void stop(){
+                chenillard.setRun(false);
+                chenillard = null;
+            }
+
         });
 
     }

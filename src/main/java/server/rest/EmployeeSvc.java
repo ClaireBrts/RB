@@ -7,12 +7,11 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import server.dto.*;
 
-@Path("/employee")
+@Path("employee")
 public class EmployeeSvc {
     @GET
-    @Path("/getEmployee")
     @Produces(MediaType.APPLICATION_JSON)
-    public Employee getEmployee() {
+    public String getEmployee() {
         Employee employee = new Employee();
         employee.setName("John");
         employee.setAge(25);
@@ -24,13 +23,16 @@ public class EmployeeSvc {
         address.setStreet("Evergreen");
         address.setZip(66450);
         employee.setAddress(address);
-        return employee;
+        System.out.println(employee);
+        return "employee";
     }
-
+/*
     @POST
     @Path("/postEmployee")
     public void postEmployee(Employee employee) {
         System.out.println("Output json server .... \n");
         System.out.println(employee);
     }
+
+ */
 }
