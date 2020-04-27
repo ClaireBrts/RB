@@ -11,16 +11,6 @@ public class MinimalServerRest {
 
     public static KNX home;
 
-    {
-        try {
-            home = new KNX("192.168.0.29","192.168.1.201",3671);
-        } catch (KNXException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-
     public static void main(String[] args) throws Exception {
         Server server = new Server(9999);
 
@@ -35,7 +25,8 @@ public class MinimalServerRest {
         serHol.setInitParameter("jersey.config.server.provider.packages",
                 "server.rest");
 
-
+        home = new KNX("192.168.0.29","192.168.1.201",3671);
+        
         try {
             server.start();
             server.join();
