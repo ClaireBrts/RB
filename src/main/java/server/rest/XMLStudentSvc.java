@@ -8,10 +8,10 @@ import javax.ws.rs.core.MediaType;
 
 import server.dto.Student;
 
-@Path("/xmlServices")
+@Path("xmlServices")
 public class XMLStudentSvc {
     @GET
-    @Path("/student/{name}")
+    @Path("student/{name}")
     @Produces(MediaType.APPLICATION_XML)
     public Student getStudent( @PathParam("name") String name ) {
         Student st = new Student(name, "Smith", 22, 1);

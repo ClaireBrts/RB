@@ -9,9 +9,12 @@ import javax.ws.rs.core.MediaType;
 public class MyMessage {
 
     @GET
-    @Produces(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.TEXT_HTML)
     public String getMessage() {
 
-        return "My message\n";
+        return "<head>" + "<title>Titre de la page</title></head>" + "<body> Helloooo</body>";
+
+        //return "My message\n";
     }
 }
+

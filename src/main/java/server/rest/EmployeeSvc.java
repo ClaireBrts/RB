@@ -7,10 +7,10 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import server.dto.*;
 
-@Path("/employee")
+@Path("employee")
 public class EmployeeSvc {
     @GET
-    @Path("/getEmployee")
+    @Path("getEmployee")
     @Produces(MediaType.APPLICATION_JSON)
     public Employee getEmployee() {
         Employee employee = new Employee();

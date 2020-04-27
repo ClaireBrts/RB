@@ -53,7 +53,6 @@ public class KNX {
         button4 = 0;
 
 
-
         knxLink.addLinkListener(new NetworkLinkListener() {
             public void confirmation(FrameEvent arg0) {
             }
@@ -71,7 +70,7 @@ public class KNX {
                 }
                 //Premier appui donc lance l'action
                 if (button1 == 2) {
-                    if(chenillard == null) {
+                    if (chenillard == null) {
                         chenillard = new Chenillard(pc, 600, 1);
                         chenillard.start();
                     }
@@ -92,8 +91,8 @@ public class KNX {
                 }
                 //Premier appui donc lance l'action
                 if (button2 == 2) {
-                    chenillard.changementSens();
-                    button2=0;
+                    chenChangementSens();
+                    button2 = 0;
                 }
 
                 /**reaction au button3
@@ -104,8 +103,8 @@ public class KNX {
                 }
                 //Premier appui donc lance l'action
                 if (button3 == 2) {
-                    chenillard.accelerer();
-                    button3=0;
+                    chenAccelerer();
+                    button3 = 0;
                 }
 
 
@@ -117,8 +116,8 @@ public class KNX {
                 }
                 //Premier appui donc lance l'action
                 if (button4 == 2) {
-                    chenillard.ralentir();
-                    button4=0;
+                    chenRalentir();
+                    button4 = 0;
                 }
 
             }
@@ -131,7 +130,18 @@ public class KNX {
 
     }
 
+    public void chenAccelerer() {
+        chenillard.accelerer();
+    }
 
+    public void chenRalentir() {
+        chenillard.ralentir();
+
+    }
+
+    public void chenChangementSens(){
+        chenillard.changementSens();
+    }
 
 }
 
