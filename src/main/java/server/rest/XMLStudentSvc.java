@@ -11,9 +11,10 @@ import server.dto.Student;
 @Path("/xmlServices")
 public class XMLStudentSvc {
     @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    public String getMessage() {
-
-        return "My message\n";
+    @Path("student/{name}")
+    @Produces(MediaType.APPLICATION_XML)
+    public Student getStudent( @PathParam("name") String name ) {
+        Student st = new Student(name, "Smith", 22, 1);
+        return st;
     }
 }

@@ -10,6 +10,7 @@ import server.dto.*;
 @Path("employee")
 public class EmployeeSvc {
     @GET
+    @Path("getEmployee")
     @Produces(MediaType.APPLICATION_JSON)
     public String getEmployee() {
         Employee employee = new Employee();
