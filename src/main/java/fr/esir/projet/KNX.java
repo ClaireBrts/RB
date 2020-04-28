@@ -127,18 +127,25 @@ public class KNX {
             }
 
 
-            public void start(){
-                chenillard = new Chenillard(pc, 600, 1);
-                chenillard.start();
-            }
 
-            public void stop(){
-                chenillard.setRun(false);
-                chenillard = null;
-            }
+
+
 
         });
 
+    }
+
+    public void start(){
+        if (chenillard == null) {
+            chenillard = new Chenillard(pc, 600, 1);
+            chenillard.start();
+        }
+    }
+    public void stop(){
+        if (chenillard != null) {
+        chenillard.setRun(false);
+        chenillard = null;
+    }
     }
 
     public void chenAccelerer() {
