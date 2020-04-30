@@ -127,38 +127,42 @@ public class KNX {
             }
 
 
-
-
-
-
         });
 
     }
 
-    public void start(){
+    public void start() {
         if (chenillard == null) {
             chenillard = new Chenillard(pc, 600, 1);
             chenillard.start();
         }
     }
-    public void stop(){
+
+    public void stop() {
         if (chenillard != null) {
-        chenillard.setRun(false);
-        chenillard = null;
-    }
+            chenillard.setRun(false);
+            chenillard = null;
+        }
     }
 
     public void chenAccelerer() {
-        chenillard.accelerer();
+        if (chenillard != null) {
+            chenillard.accelerer();
+        }
     }
 
     public void chenRalentir() {
-        chenillard.ralentir();
+        if (chenillard != null) {
+            chenillard.ralentir();
+        }
 
     }
 
-    public void chenChangementSens(){
-        chenillard.changementSens();
+    public void chenChangementSens() {
+
+        if (chenillard != null) {
+            chenillard.changementSens();
+        }
     }
 
 }

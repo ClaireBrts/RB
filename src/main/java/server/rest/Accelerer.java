@@ -10,8 +10,9 @@ import javax.ws.rs.core.MediaType;
 @Path("accelerer")
 public class Accelerer {
     @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    public void getAccelerer() {
+    @Produces(MediaType.TEXT_HTML)
+    public String getAccelerer() {
         MinimalServerRest.home.chenAccelerer();
+        return  "<head>" + "<title>Titre de la page</title></head>" + "<body>FCT accelerer</body>";
     }
 }

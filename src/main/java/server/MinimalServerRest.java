@@ -26,7 +26,7 @@ public class MinimalServerRest {
                 "server.rest");
 
         home = new KNX("192.168.0.29","192.168.1.201",3671);
-        
+
         try {
             server.start();
             server.join();
