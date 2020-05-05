@@ -27,7 +27,6 @@ public class Chenillard extends Thread {
     public void run() {
         int i = 1;
         while (run) {
-            System.out.println("dans le while du chenillard"+ run);
             try {
                 if (sens == 1) {
                     if (i == 5) {

@@ -12,7 +12,7 @@ import javax.ws.rs.core.MediaType;
 @Path("accelerer")
 public class Accelerer {
     @GET
-    @Produces(MediaType.TEXT_HTML)
+    @Produces(MediaType.APPLICATION_JSON)
     public String getAccelerer() {
         MinimalServerRest.home.chenAccelerer();
         return  "<head>" + "<title>Titre de la page</title></head>" + "<body>FCT accelerer</body>";
@@ -22,6 +22,6 @@ public class Accelerer {
     @Path("/postAccelerer")
     public void postAccelerer(Chenillard chenillard) {
         System.out.println("Output json server .... \n");
-        System.out.println(chenillard.toString());
+        System.out.println(chenillard);
     }
 }
