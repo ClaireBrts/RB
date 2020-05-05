@@ -16,18 +16,18 @@ public class EmployeeSvc {
         Employee employee = new Employee();
         employee.setName("John");
         employee.setAge(25);
-        employee.setDeparment("HR");
-        employee.setWage(15000.00);
+     //   employee.setDeparment("HR");
+      //  employee.setWage(15000.00);
         Address address = new Address();
         address.setCity("Massachusetts");
         address.setState("Springfield");
         address.setStreet("Evergreen");
         address.setZip(66450);
-        employee.setAddress(address);
+      //  employee.setAddress(address);
         System.out.println(employee);
         return "employee";
     }
-/*
+
     @POST
     @Path("/postEmployee")
     public void postEmployee(Employee employee) {
@@ -35,5 +35,4 @@ public class EmployeeSvc {
         System.out.println(employee);
     }
 
- */
 }

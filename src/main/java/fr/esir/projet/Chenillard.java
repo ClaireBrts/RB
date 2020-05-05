@@ -27,6 +27,7 @@ public class Chenillard extends Thread {
     public void run() {
         int i = 1;
         while (run) {
+            //System.out.println("dans le while du chenillard"+ run);
             try {
                 if (sens == 1) {
                     if (i == 5) {
@@ -42,6 +43,7 @@ public class Chenillard extends Thread {
                     if (i == 0) {
                         i = 4;
                     }
+
                     pc.write(new GroupAddress("0/0/" + i), true);
                     TimeUnit.MILLISECONDS.sleep(vitesse);
                     pc.write(new GroupAddress("0/0/" + i), false);
