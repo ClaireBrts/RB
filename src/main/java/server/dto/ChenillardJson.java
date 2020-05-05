@@ -3,6 +3,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 public class ChenillardJson {
+
     private int vitesse=0;
     private boolean run=false;
     private int sens=1;

@@ -10,19 +10,14 @@
     @Path("chenillard")
     public class ChenillardSvc {
 
-
         @GET
         @Path("/getStart")
         @Produces(MediaType.TEXT_HTML)
         public String getMessage() {
 
             MinimalServerRest.home.start();
-
             return  "<head>" + "<title>Titre de la page</title></head>" + "<body>FCT START</body>";
-
-            //return "My message\n";
         }
-
 
         @GET
         @Path("/getStop")
@@ -50,17 +45,6 @@
 
         }
 
-        @POST
-        @Consumes(MediaType.APPLICATION_JSON)
-        @Produces(MediaType.APPLICATION_JSON)
-        @Path("/postRalentir")
-        public void postRalentir(ChenillardJson chenille) {
-            System.out.println("Output json server .... \n");
-            System.out.println(chenille);
-            MinimalServerRest.home.chenRalentir(chenille.getVitesse());
-
-        }
-
         @GET
         @Path("/getAccelerer")
         @Produces(MediaType.TEXT_HTML)
@@ -72,11 +56,11 @@
         @POST
         @Consumes(MediaType.APPLICATION_JSON)
         @Produces(MediaType.APPLICATION_JSON)
-        @Path("/postAccelerer")
-        public void postAccelerer(ChenillardJson chenille) {
+        @Path("/postSetVitesse")
+        public void postSetVitesse(ChenillardJson chenille) {
             System.out.println("Output json server .... \n");
             System.out.println(chenille);
-            MinimalServerRest.home.chenAccelerer(chenille.getVitesse());
+            MinimalServerRest.home.chenSetVitesse(chenille.getVitesse());
         }
 
     }

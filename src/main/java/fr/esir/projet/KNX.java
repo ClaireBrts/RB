@@ -151,12 +151,6 @@ public class KNX {
         }
     }
 
-    public void chenAccelerer(int vit) {
-        if (chenillard != null) {
-            chenillard.accelerer(vit);
-        }
-    }
-
     public void chenRalentir() {
         if (chenillard != null) {
             chenillard.ralentir();
@@ -164,9 +158,9 @@ public class KNX {
 
     }
 
-    public void chenRalentir(int vit) {
+    public void chenSetVitesse(int vit) {
         if (chenillard != null) {
-            chenillard.ralentir(vit);
+            chenillard.setVitesse(vit);
         }
 
     }
