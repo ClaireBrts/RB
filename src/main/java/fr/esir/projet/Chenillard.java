@@ -68,9 +68,18 @@ public class Chenillard extends Thread {
         }
     }
 
-    public void ralentir() {
-        vitesse += 100;
+    public void accelerer(int vit) {
+        if (vitesse >= 300) {
+            vitesse -= vit;
+        }
     }
+
+    public void ralentir() { vitesse += 100; }
+
+    public void ralentir(int vit) {
+        vitesse += vit;
+    }
+
 
     public void changementSens() {
         if (sens == 1) {
