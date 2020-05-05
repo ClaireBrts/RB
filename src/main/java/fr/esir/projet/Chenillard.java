@@ -6,8 +6,10 @@ import tuwien.auto.calimero.KNXTimeoutException;
 import tuwien.auto.calimero.link.KNXLinkClosedException;
 import tuwien.auto.calimero.process.ProcessCommunicator;
 
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.concurrent.TimeUnit;
 
+@XmlRootElement
 public class Chenillard extends Thread {
     private int vitesse;
     private boolean run;
@@ -89,7 +91,33 @@ public class Chenillard extends Thread {
         }
     }
 
+    public int getVitesse() {
+        return vitesse;
+    }
+
+    public boolean isRun() {
+        return run;
+    }
+
+    public int getSens() {
+        return sens;
+    }
+
+    public void setVitesse(int vitesse) {
+        this.vitesse = vitesse;
+    }
+
+    public void setSens(int sens) {
+        this.sens = sens;
+    }
+
     public void setRun(boolean run) {
         this.run = run;
+    }
+
+    @Override
+    public String toString() {
+        return "Chenillard [vitesse=" + vitesse + ", run=" + run + ", sens="
+                + sens + "]";
     }
 }
