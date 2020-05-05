@@ -60,7 +60,7 @@ public class KNX {
             public void indication(FrameEvent arg0) {
 
                 //System.out.println("targetadress " + ((CEMILData)arg0.getFrame()).getDestination());
-                System.out.println(button1);
+                //System.out.println(button1);
 
                 /**reaction au button1
                  *
@@ -77,7 +77,7 @@ public class KNX {
                 }
                 //Deuxième appui donc stop l'action
                 if (button1 == 4) {
-                    System.out.println("deco chenillard");
+                    //System.out.println("deco chenillard");
                     chenillard.setRun(false);
                     chenillard = null;
                     button1 = 0;
