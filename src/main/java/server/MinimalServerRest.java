@@ -5,7 +5,6 @@ import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 import org.glassfish.jersey.servlet.ServletContainer;
 import fr.esir.projet.*;
-import tuwien.auto.calimero.KNXException;
 
 public class MinimalServerRest {
 

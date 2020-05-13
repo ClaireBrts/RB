@@ -13,7 +13,6 @@ import tuwien.auto.calimero.process.ProcessCommunicatorImpl;
 import java.net.InetSocketAddress;
 import java.util.concurrent.TimeUnit;
 
-import static tuwien.auto.calimero.link.medium.TPSettings.TP1;
 
 //IP : 192.168.1.201
 //WIFI Esir-Maquette114
