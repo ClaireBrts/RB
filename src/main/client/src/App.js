@@ -13,6 +13,10 @@ class App extends Component {
   }
 
   componentDidMount() {
+    this.refresh()
+  }
+
+  async refresh() {
     fetch('/rest/chenillard/getChenillard/', {
       method: "GET",
       headers: {
@@ -32,43 +36,40 @@ class App extends Component {
       .then(response => {
         if (!response.ok) {
           this.handleResponseError(response);
+        } 
+        else {
+          this.refresh()
         }
       })
-      .catch(error => {
-        this.handleError(error);
-      });
-
   }
+
   async start() {
     console.log("START DIS OUI:");
     return fetch("rest/chenillard/getStart")
       .then(response => {
-       if (!response.ok) {
-            this.handleResponseError(response);
+        if (!response.ok) {
+          this.handleResponseError(response);
         }
-
+        else {
+          this.refresh()
+        }
       })
-      .catch(error => {
-        this.handleError(error);
-      });
   }
 
-handleResponseError(response) {
+  handleResponseError(response) {
     throw new Error("HTTP error, status = " + response.status);
-}
-handleError(error) {
-    console.log(error.message);
-}
+  }
+
 
   render() {
     return (
       <div className="App">
 
         <div className="ButtonStart">
-          <button type="submit" onClick={()=>{this.start()}}> Start</button>
+          <button type="submit" onClick={() => { this.start() }}> Start</button>
         </div>
         <div className="ButtonStop">
-          <button onClick={this.stop}> Stop</button>
+          <button onClick={() => { this.stop() }}> Stop</button>
         </div>
         <div className="chenillard">
           <title> Chenillard </title>
