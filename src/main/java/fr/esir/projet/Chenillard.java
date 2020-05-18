@@ -105,7 +105,7 @@ public class Chenillard extends Thread {
     }
 
     public String toString() {
-        return "Chenillard [vitesse=" + vitesse + ", run=" + run + ", sens="
-                + sens + "]";
+        return "{vitesse=" + vitesse + ", run=" + run + ", sens="
+                + sens + "}";
     }
 }

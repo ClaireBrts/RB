@@ -67,6 +67,7 @@
         @Path("/getChenillard")
         @Produces(MediaType.APPLICATION_JSON)
         public String getChenillard() {
+
             return MinimalServerRest.home.chenToString();
         }
 
