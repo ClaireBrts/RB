@@ -1,5 +1,6 @@
     package server.rest;
 
+    import org.json.JSONException;
     import server.MinimalServerRest;
     import server.dto.ChenillardJson;
 
@@ -67,7 +68,12 @@
         @Path("/getChenillard")
         @Produces(MediaType.APPLICATION_JSON)
         public String getChenillard() {
-            return MinimalServerRest.home.chenToString();
+            try {
+                return MinimalServerRest.home.chenToJson();
+            } catch (JSONException e) {
+               e.printStackTrace();
+               return "Json Error";
+            }
         }
 
     }

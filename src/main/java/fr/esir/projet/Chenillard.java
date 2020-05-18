@@ -1,5 +1,6 @@
 package fr.esir.projet;
 
+import org.json.JSONException;
 import tuwien.auto.calimero.GroupAddress;
 import tuwien.auto.calimero.KNXFormatException;
 import tuwien.auto.calimero.KNXTimeoutException;
@@ -8,6 +9,8 @@ import tuwien.auto.calimero.process.ProcessCommunicator;
 
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.concurrent.TimeUnit;
+import org.json.JSONObject;
+
 
 public class Chenillard extends Thread {
     private int vitesse;
@@ -104,8 +107,11 @@ public class Chenillard extends Thread {
         this.run = run;
     }
 
-    public String toString() {
-        return "Chenillard [vitesse=" + vitesse + ", run=" + run + ", sens="
-                + sens + "]";
+    public String toJson() throws JSONException {
+        JSONObject chenillard = new JSONObject();
+        chenillard.put("vitesse", vitesse);
+        chenillard.put("run", run);
+        chenillard.put("sens", sens);
+return chenillard.toString();
     }
 }
