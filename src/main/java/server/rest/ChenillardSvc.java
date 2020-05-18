@@ -63,4 +63,12 @@
             MinimalServerRest.home.chenSetVitesse(chenille.getVitesse());
         }
 
+        @GET
+        @Path("/getChenillard")
+        @Produces(MediaType.TEXT_HTML)
+        public String getChenillard() {
+            MinimalServerRest.home.toString();
+            return  "<head>" + "<title>Titre de la page</title></head>" + "<body>ChenillardJson</body>";
+        }
+
     }
