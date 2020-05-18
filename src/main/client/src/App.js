@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import React, { Component } from 'react';
 
@@ -14,9 +13,14 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('http://http://localhost:9999/rest/getChenillard/')
-      .then(res => res.json())
+    fetch('/rest/chenillard/getChenillard/', {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json; charset=UTF-8"
+      }
+    }).then(res => res.json())
       .then((data) => {
+        console.log(data);
         this.setState({ chenillard: data })
       })
       .catch(console.log)
@@ -35,7 +39,7 @@ class App extends Component {
         </div>
       <div className="chenillard">
 <title> Chenillard </title>
-      {`Vitesse: ${this.state.chenillard.vitesse} Run: ${this.state.chenillard.run}  Sens: ${this.state.chenillard.sens}`}
+      {/* {`Vitesse: ${this.state.chenillard.vitesse} Run: ${this.state.chenillard.run}  Sens: ${this.state.chenillard.sens}`} */}
       </div>
 
       </div>
