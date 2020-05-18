@@ -28,7 +28,9 @@ class App extends Component {
         console.log(data);
         this.setState({ chenillard: data })
       })
-      .catch(console.log)
+      .catch(error => {
+               this.handleError(error);
+             })
   }
 
   async stop() {
@@ -59,9 +61,6 @@ class App extends Component {
           this.refresh()
         }
       })
-  }
-
-      })
       .catch(error => {
         this.handleError(error);
       });
@@ -74,6 +73,9 @@ class App extends Component {
          if (!response.ok) {
               this.handleResponseError(response);
           }
+          else {
+                    this.refresh()
+           }
 
         })
         .catch(error => {
