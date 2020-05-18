@@ -9,7 +9,6 @@ import tuwien.auto.calimero.process.ProcessCommunicator;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.concurrent.TimeUnit;
 
-@XmlRootElement
 public class Chenillard extends Thread {
     private int vitesse;
     private boolean run;
@@ -105,7 +104,6 @@ public class Chenillard extends Thread {
         this.run = run;
     }
 
-    @Override
     public String toString() {
         return "Chenillard [vitesse=" + vitesse + ", run=" + run + ", sens="
                 + sens + "]";
