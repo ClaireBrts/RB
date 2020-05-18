@@ -4,12 +4,14 @@ import React, { Component } from 'react';
 
 class App extends Component {
 
-  state={
-    chenillard: null
+  state = {
+    chenillard: ""
   }
 
   constructor(props) {
     super(props);
+
+
   }
 
   componentDidMount() {
@@ -26,21 +28,38 @@ class App extends Component {
       .catch(console.log)
   }
 
+  async stop() {
+    console.log("Stop");
+    return fetch('/rest/chenillard/getStop/')
+      .then(response => {
+        if (!response.ok) {
+          this.handleResponseError(response);
+        }
+      })
+      .catch(error => {
+        this.handleError(error);
+      });
 
+  }
+
+handleResponseError(response) {
+    throw new Error("HTTP error, status = " + response.status);
+}
+handleError(error) {
+    console.log(error.message);
+}
 
   render() {
     return (
       <div className="App">
-        <div className="ButtonStart">
-          <button type="submit" ref="buttonStart" onSubmit={this.onSubmitEvent}> Start</button>
-        </div>
+
         <div className="ButtonStop">
-          <button type="submit" ref="buttonStop" onSubmit={this.onSubmitEvent}> Start</button>
+          <button onClick={this.stop}> Stop</button>
         </div>
-      <div className="chenillard">
-<title> Chenillard </title>
-      {/* {`Vitesse: ${this.state.chenillard.vitesse} Run: ${this.state.chenillard.run}  Sens: ${this.state.chenillard.sens}`} */}
-      </div>
+        <div className="chenillard">
+          <title> Chenillard </title>
+          {`Vitesse: ${this.state.chenillard.vitesse} Run: ${this.state.chenillard.run}  Sens: ${this.state.chenillard.sens}`}
+        </div>
 
       </div>
     );
