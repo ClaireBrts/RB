@@ -1,7 +1,7 @@
-import logo from './logo.svg';
 import './App.css';
 import React, { Component } from 'react';
 
+//app
 
 class App extends Component {
 
@@ -9,15 +9,19 @@ class App extends Component {
     super(props);
   }
 
+
   render() {
     return (
       <div className="App">
+
         <div className="ButtonStart">
           <button type="submit" ref="buttonStart" onSubmit={this.onSubmitEvent}> Start</button>
         </div>
+
         <div className="ButtonStop">
-          <button type="submit" ref="buttonStop" onSubmit={this.onSubmitEvent}> Start</button>
+          <button type="submit" ref="buttonStop" onSubmit={this.onSubmitEvent}> Stop</button>
         </div>
+
       </div>
     );
 
