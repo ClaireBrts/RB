@@ -1,0 +1,25 @@
+0 info it worked if it ends with ok
+1 verbose cli [
+1 verbose cli   '/Users/briantaisclaire/Documents/ESIR/ESIR2/RB/src/main/js/frontend/node/node',
+1 verbose cli   '/Users/briantaisclaire/Documents/ESIR/ESIR2/RB/src/main/js/frontend/node/node_modules/npm/bin/npm-cli.js',
+1 verbose cli   'install'
+1 verbose cli ]
+2 info using npm@2.15.9
+3 info using node@v12.16.3
+4 verbose config Skipping project config: /Users/briantaisclaire/.npmrc. (matches userconfig)
+5 verbose readDependencies loading dependencies from /Users/briantaisclaire/package.json
+6 error install Couldn't read dependencies
+7 verbose stack Error: ENOENT: no such file or directory, open '/Users/briantaisclaire/package.json'
+8 verbose cwd /Users/briantaisclaire/Documents/ESIR/ESIR2/RB/src/main/js/frontend
+9 error Darwin 19.3.0
+10 error argv "/Users/briantaisclaire/Documents/ESIR/ESIR2/RB/src/main/js/frontend/node/node" "/Users/briantaisclaire/Documents/ESIR/ESIR2/RB/src/main/js/frontend/node/node_modules/npm/bin/npm-cli.js" "install"
+11 error node v12.16.3
+12 error npm  v2.15.9
+13 error path /Users/briantaisclaire/package.json
+14 error code ENOPACKAGEJSON
+15 error errno -2
+16 error syscall open
+17 error package.json ENOENT: no such file or directory, open '/Users/briantaisclaire/package.json'
+17 error package.json This is most likely not a problem with npm itself.
+17 error package.json npm can't find a package.json file in your current directory.
+18 verbose exit [ -2, true ]
