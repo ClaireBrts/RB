@@ -10,8 +10,6 @@ class App extends Component {
 
   constructor(props) {
     super(props);
-
-
   }
 
   componentDidMount() {
@@ -53,6 +51,9 @@ handleError(error) {
     return (
       <div className="App">
 
+        <div className="ButtonStart">
+          <button type="submit" onClick={()=>{this.start()}}> Start</button>
+        </div>
         <div className="ButtonStop">
           <button onClick={this.stop}> Stop</button>
         </div>
