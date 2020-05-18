@@ -59,7 +59,7 @@
         @Path("/postSetVitesse")
         public void postSetVitesse(ChenillardJson chenille) {
             System.out.println("Output json server .... \n");
-            System.out.println(chenille);
+            System.out.println(chenille.getVitesse());
             MinimalServerRest.home.chenSetVitesse(chenille.getVitesse());
         }
 
