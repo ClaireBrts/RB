@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import React, { Component } from 'react';
 
+//            {`Vitesse: ${this.state.chenillard.vitesse} Run: ${this.state.chenillard.run}  Sens: ${this.state.chenillard.sens}`}
 
 class App extends Component {
 
@@ -14,7 +15,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('http://http://localhost:9999/rest/getChenillard/')
+    fetch('http://localhost:9999/rest/chenillard/getChenillard/',{ mode: "no-cors"})
       .then(res => res.json())
       .then((data) => {
         this.setState({ chenillard: data })
@@ -28,20 +29,19 @@ class App extends Component {
     return (
       <div className="App">
 
-        <div className="ButtonStart">
-          <button type="submit" ref="buttonStart" onSubmit={this.onSubmitEvent}> Start</button>
+            <div className="ButtonStart">
+              <button type="submit" ref="buttonStart" onSubmit={this.onSubmitEvent}> Start</button>
+            </div>
+
+            <div className="ButtonStop">
+              <button type="submit" ref="buttonStop" onSubmit={this.onSubmitEvent}> Stop</button>
+            </div>
+            <div className="chenillard">
+            <title> Chenillard </title>
+            </div>
+
+
         </div>
-
-        <div className="ButtonStop">
-          <button type="submit" ref="buttonStop" onSubmit={this.onSubmitEvent}> Stop</button>
-        </div>
-      <div className="chenillard">
-<title> Chenillard </title>
-      {`Vitesse: ${this.state.chenillard.vitesse} Run: ${this.state.chenillard.run}  Sens: ${this.state.chenillard.sens}`}
-      </div>
-
-
-      </div>
     );
 
 }
