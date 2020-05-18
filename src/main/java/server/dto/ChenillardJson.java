@@ -34,7 +34,7 @@ public class ChenillardJson {
 
     @Override
     public String toString() {
-        return "{vitesse=" + vitesse + ", run=" + run + ", sens="
-                + sens + "}";
+        return "Chenillard [vitesse=" + vitesse + ", run=" + run + ", sens="
+                + sens + "]";
     }
 }

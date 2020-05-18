@@ -39,6 +39,19 @@ class App extends Component {
       });
 
   }
+  async start() {
+    console.log("START DIS OUI:");
+    return fetch("rest/chenillard/getStart")
+      .then(response => {
+       if (!response.ok) {
+            this.handleResponseError(response);
+        }
+
+      })
+      .catch(error => {
+        this.handleError(error);
+      });
+  }
 
 handleResponseError(response) {
     throw new Error("HTTP error, status = " + response.status);
