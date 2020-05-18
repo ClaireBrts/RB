@@ -1,10 +1,10 @@
 import './App.css';
 import React, { Component } from 'react';
 
-
 class App extends Component {
 
   state = {
+    url : "/rest/chenillard/",
     chenillard: ""
   }
 
@@ -13,7 +13,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('/rest/chenillard/getChenillard/', {
+    fetch(this.state.url +'getChenillard/', {
       method: "GET",
       headers: {
         "Content-type": "application/json; charset=UTF-8"
@@ -28,7 +28,7 @@ class App extends Component {
 
   async stop() {
     console.log("Stop");
-    return fetch('/rest/chenillard/getStop/')
+    return fetch(this.state.url +'getStop/')
       .then(response => {
         if (!response.ok) {
           this.handleResponseError(response);
@@ -39,9 +39,10 @@ class App extends Component {
       });
 
   }
+
   async start() {
-    console.log("START DIS OUI:");
-    return fetch("rest/chenillard/getStart")
+    console.log("START:");
+    return fetch(this.state.url +"getStart")
       .then(response => {
        if (!response.ok) {
             this.handleResponseError(response);
@@ -52,6 +53,20 @@ class App extends Component {
         this.handleError(error);
       });
   }
+
+  async changeSens() {
+      console.log("ChangeSens");
+      return fetch(this.state.url +"getChangeSens")
+        .then(response => {
+         if (!response.ok) {
+              this.handleResponseError(response);
+          }
+
+        })
+        .catch(error => {
+          this.handleError(error);
+        });
+    }
 
 handleResponseError(response) {
     throw new Error("HTTP error, status = " + response.status);
@@ -68,7 +83,10 @@ handleError(error) {
           <button type="submit" onClick={()=>{this.start()}}> Start</button>
         </div>
         <div className="ButtonStop">
-          <button onClick={this.stop}> Stop</button>
+          <button onClick={()=>{this.stop()}}> Stop</button>
+        </div>
+        <div className="ButtonSens">
+          <button onClick={()=>{this.changeSens()}}> Changer de Sens</button>
         </div>
         <div className="chenillard">
           <title> Chenillard </title>
