@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import React, { Component } from 'react';
 
@@ -9,6 +8,8 @@ constructor(props) {
     super(props);
   }
 
+
+
 render(){
 return (
     <div className="App">
@@ -16,7 +17,7 @@ return (
           <button type="submit" ref="buttonStart" onSubmit={this.onSubmitEvent}> Start</button>
       </div>
       <div className="ButtonStop">
-                <button type="submit" ref="buttonStop" onSubmit={this.onSubmitEvent}> Start</button>
+                <button type="submit" ref="buttonStop" onSubmit={this.onSubmitEvent}> Stop</button>
        </div>
     </div>
   );
