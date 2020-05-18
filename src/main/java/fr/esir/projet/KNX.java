@@ -1,5 +1,7 @@
 package fr.esir.projet;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import tuwien.auto.calimero.*;
 import tuwien.auto.calimero.cemi.CEMILData;
 import tuwien.auto.calimero.link.KNXLinkClosedException;
@@ -171,11 +173,17 @@ public class KNX {
         }
     }
 
-    public String chenToString(){
+    public String chenToJson() throws JSONException {
         if (chenillard != null) {
-            return chenillard.toString();
+            return chenillard.toJson();
         }
-        else return "{vitesse=0, run=false, sens=1}";
+        else {
+            JSONObject chen = new JSONObject();
+            chen.put("vitesse", 600);
+            chen.put("run", false);
+            chen.put("sens", 1);
+            return chen.toString();
+        }
     }
 
 }
