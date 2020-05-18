@@ -1,6 +1,7 @@
 import './App.css';
 import React, { Component } from 'react';
 
+
 class App extends Component {
 
   state = {
@@ -13,6 +14,10 @@ class App extends Component {
   }
 
   componentDidMount() {
+    this.refresh()
+  }
+
+  async refresh() {
     fetch(this.state.url +'getChenillard/', {
       method: "GET",
       headers: {
@@ -33,6 +38,9 @@ class App extends Component {
         if (!response.ok) {
           this.handleResponseError(response);
         }
+        else {
+          this.refresh()
+        }
       })
       .catch(error => {
         this.handleError(error);
@@ -44,9 +52,14 @@ class App extends Component {
     console.log("START:");
     return fetch(this.state.url +"getStart")
       .then(response => {
-       if (!response.ok) {
-            this.handleResponseError(response);
+        if (!response.ok) {
+          this.handleResponseError(response);
         }
+        else {
+          this.refresh()
+        }
+      })
+  }
 
       })
       .catch(error => {

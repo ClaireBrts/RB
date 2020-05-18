@@ -15,7 +15,6 @@
         @Path("/getStart")
         @Produces(MediaType.TEXT_HTML)
         public String getMessage() {
-
             MinimalServerRest.home.start();
             return  "<head>" + "<title>Titre de la page</title></head>" + "<body>FCT START</body>";
         }
@@ -26,6 +25,7 @@
         public String getStop() {
             MinimalServerRest.home.stop();
             return  "<head>" + "<title>Titre de la page</title></head>" + "<body>FCT STOP</body>";
+
         }
 
         @GET
