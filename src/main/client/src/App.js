@@ -21,15 +21,10 @@ class App extends Component {
         "Content-type": "application/json; charset=UTF-8"
       }
     })
-
-    .then(res =>
-    {
-    console.log(typeof res.json())
-     return res.json()
-    }
+    .then(res => res.json()
     )
      .then(data => {
-        console.log(typeof data);
+        console.log(data);
         this.setState({ chenillard: data })
       })
       .catch(console.log)
