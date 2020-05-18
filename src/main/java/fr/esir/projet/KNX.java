@@ -171,5 +171,12 @@ public class KNX {
         }
     }
 
+    public String chenToString(){
+        if (chenillard != null) {
+            return chenillard.toString();
+        }
+        else return "Chenillard [vitesse=0, run=false, sens=1]";
+    }
+
 }
 

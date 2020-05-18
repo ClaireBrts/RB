@@ -65,9 +65,9 @@
 
         @GET
         @Path("/getChenillard")
-        @Produces(MediaType.TEXT_HTML)
+        @Produces(MediaType.APPLICATION_JSON)
         public String getChenillard() {
-            return MinimalServerRest.home.toString();
+            return MinimalServerRest.home.chenToString();
         }
 
     }
