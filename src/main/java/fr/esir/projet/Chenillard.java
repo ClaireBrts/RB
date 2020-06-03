@@ -75,8 +75,8 @@ public class Chenillard extends Thread {
     }
 
     public void ralentir() {
-        if (vitesse <= 1000) {
-            vitesse -= 100;
+        if (vitesse <= 900) {
+            vitesse += 100;
         }
         else{vitesse=1000;}
     }

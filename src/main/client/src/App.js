@@ -1,5 +1,10 @@
 import './App.css';
 import React, { Component } from 'react';
+import playLogo from './icone/play.png';
+import stopLogo from './icone/stop.png';
+import leftLogo from './icone/left.png';
+import rightLogo from './icone/right.png';
+
 
 
 class App extends Component {
@@ -169,23 +174,34 @@ class App extends Component {
 
 				<div className="chenillard">
 					<title> Chenillard </title>
-					{`Vitesse: ${this.state.chenillard.vitesse} Run: ${this.state.chenillard.run}  Sens: ${this.state.chenillard.sens}`}
+					{`Vitesse: ${this.state.chenillard.vitesse}`}
+
+					<div>{(this.state.chenillard.sens === -1) ? (<img className="leftLogo" src={leftLogo} alt="leftLogo" />) : null}</div>
+					<div>
+						{this.state.chenillard.run ?
+							(<img className="logo" src={playLogo} alt="playLogo" />)
+							: (<img className="logo" src={stopLogo} alt="stopLogo" />)
+						}
+					</div>
+
+					<div>
+						{(this.state.chenillard.sens === 1) ? (<img className="rightLogo" src={rightLogo} alt="rightLogo" />) : null}
+					</div>
+
 				</div>
+				<div>
+					<button className="big-button" type="submit" onClick={() => { this.start() }}> Start</button>
+
+					<button className="big-button" onClick={() => { this.stop() }}> Stop</button>
+
+					<button className="big-button" onClick={() => { this.changeSens() }}> Changer de Sens</button>
 
 
-
-				<button className="big-button" type="submit" onClick={() => { this.start() }}> Start</button>
-
-				<button className="big-button" onClick={() => { this.stop() }}> Stop</button>
-
-				<button className="big-button" onClick={() => { this.changeSens() }}> Changer de Sens</button>
+					<button className="big-button" onClick={() => { this.accelerer() }}>Accelerer</button>
 
 
-				<button className="big-button" onClick={() => { this.accelerer() }}>Accelerer</button>
-
-
-				<button className="big-button" onClick={() => { this.ralentir() }}>Ralentir</button>
-
+					<button className="big-button" onClick={() => { this.ralentir() }}>Ralentir</button>
+				</div>
 
 				<form >
 

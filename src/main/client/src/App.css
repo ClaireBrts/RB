@@ -34,8 +34,10 @@
     text-transform: uppercase;
     font-family: inherit;
   }
-  
+
   button.big-button {
+    margin-top: 30px;
+    margin-bottom:50px;
      padding: 1em 2em;
      border: 2px solid var(--colorShadeA);
     border-radius: 1em;
@@ -78,7 +80,19 @@
     transform: translate3d(0, 0, -1em);
     
         box-shadow: 0 0 0 2px var(--colorShadeB), 0 0.25em 0 0 var(--colorShadeB);
-  
+
+  }
+
+  .chenillard{
+   text-align: center;
+   font-weight: bold;
+   font-size:60px;
+   text-transform:uppercase;
+  }
+
+  .indication{
+text-align: center;
+   font-weight: bold;
   }
 
 
@@ -88,15 +102,13 @@
      margin-left: auto;
      margin-right: auto;
      opacity: .8;
-  background: var(--colorShadeB);           
-  box-sizing: border-box;      
+  background: var(--colorShadeB);
+  box-sizing: border-box;
   transition: opacity .2s;
   cursor: pointer;
+  width: 300px;
   }
-  
-  input[type=range]::-moz-range-thumb.inputVitesse {
-    background-color: green;
-  }
+
 
 
   .vitesseText{
@@ -109,3 +121,28 @@
     font-family: inherit;
     text-align: center;
   }
+  .chenillard{
+    vertical-align: middle;
+      display: block;
+  }
+
+  .logo{
+    vertical-align: middle;
+      width: 100px;
+      height: 100px;
+  }
+
+  .rightLogo{
+    vertical-align: middle;
+    float: right;
+    width: 100px;
+    height: 100px;
+  }
+
+  .leftLogo{
+    vertical-align: middle;
+    float: left;
+    vertical-align: auto;
+    width: 100px;
+    height: 100px;
+}
