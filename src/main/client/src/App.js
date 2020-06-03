@@ -166,24 +166,19 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
+			<div className="chenillard"> Chenillard</div>
+			<p className="indication">
+           					{`Vitesse: ${this.state.chenillard.vitesse} Run: ${this.state.chenillard.run}  Sens: ${this.state.chenillard.sens}`}
+            </p>
 
-
+			<div>
 				<button className="big-button" type="submit" onClick={() => { this.start() }}> Start</button>
-
 				<button className="big-button" onClick={() => { this.stop() }}> Stop</button>
-
 				<button className="big-button" onClick={() => { this.changeSens() }}> Changer de Sens</button>
-
-
 				<button className="big-button" onClick={() => { this.accelerer() }}>Accelerer</button>
-
-
 				<button className="big-button" onClick={() => { this.ralentir() }}>Ralentir</button>
 
-				<div className="chenillard">
-					<title> Chenillard </title>
-					{`Vitesse: ${this.state.chenillard.vitesse} Run: ${this.state.chenillard.run}  Sens: ${this.state.chenillard.sens}`}
-				</div>
+            </div>
 
 				<form className="form" >
 
