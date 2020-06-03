@@ -7,13 +7,7 @@
     --colorShadeE: rgb(205, 255, 232);
   }
   
-  @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700");
-  * {
-    box-sizing: border-box;
-  }
-  *::before, *::after {
-    box-sizing: border-box;
-  }
+
   body {
     font-family: 'OpenSans', sans-serif;
     font-size: 1rem;
@@ -25,6 +19,7 @@
     min-height: 100vh;
     background: var(--backgroundColor);
   }
+
   button {
     position: relative;
     display: inline-block;
@@ -48,6 +43,7 @@
   transform-style: preserve-3d;
      transition: all 175ms cubic-bezier(0, 0, 1, 1);
   }
+
   button.big-button::before {
     position: absolute;
     content: '';
@@ -83,4 +79,33 @@
     
         box-shadow: 0 0 0 2px var(--colorShadeB), 0 0.25em 0 0 var(--colorShadeB);
   
+  }
+
+
+  input[type=range].inputVitesse{
+    -webkit-appearance: none;
+     display: block;
+     margin-left: auto;
+     margin-right: auto;
+     opacity: .8;
+  background: var(--colorShadeB);           
+  box-sizing: border-box;      
+  transition: opacity .2s;
+  cursor: pointer;
+  }
+  
+  input[type=range]::-moz-range-thumb.inputVitesse {
+    background-color: green;
+  }
+
+
+  .vitesseText{
+    margin-top: 50px;
+    text-decoration: none;
+    font-size: 1.5rem;
+    color:var(--colorShadeA);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: inherit;
+    text-align: center;
   }

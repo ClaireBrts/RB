@@ -167,6 +167,12 @@ class App extends Component {
 		return (
 			<div className="App">
 
+				<div className="chenillard">
+					<title> Chenillard </title>
+					{`Vitesse: ${this.state.chenillard.vitesse} Run: ${this.state.chenillard.run}  Sens: ${this.state.chenillard.sens}`}
+				</div>
+
+
 
 				<button className="big-button" type="submit" onClick={() => { this.start() }}> Start</button>
 
@@ -180,18 +186,12 @@ class App extends Component {
 
 				<button className="big-button" onClick={() => { this.ralentir() }}>Ralentir</button>
 
-				<div className="chenillard">
-					<title> Chenillard </title>
-					{`Vitesse: ${this.state.chenillard.vitesse} Run: ${this.state.chenillard.run}  Sens: ${this.state.chenillard.sens}`}
-				</div>
 
-				<form className="form" >
+				<form >
 
-					<label>
-						Vitesse
-						</label>
+					<p className="vitesseText">Vitesse</p>
 
-					<input className="inputMessage" ref={this.vitesseRef} type="range" placeholder="Entrez une vitesse" min="100" max="1000" onChange={this.recupVitesse} step="1" value={this.state.chenillard.vitesse} />
+					<input className="inputVitesse" ref={this.vitesseRef} type="range" placeholder="Entrez une vitesse" min="100" max="1000" onChange={this.recupVitesse} step="1" value={this.state.chenillard.vitesse} />
 
 				</form>
 
