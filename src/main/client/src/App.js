@@ -6,7 +6,7 @@ class App extends Component {
 
 	state = {
 		url: "/rest/chenillard/",
-		chenillard: {"vitesse": 600, "run":false, "sens":1}
+		chenillard: { "vitesse": 600, "run": false, "sens": 1 }
 	}
 
 	constructor(props) {
@@ -167,21 +167,19 @@ class App extends Component {
 		return (
 			<div className="App">
 
-				<div className="ButtonStart">
-					<button type="submit" onClick={() => { this.start() }}> Start</button>
-				</div>
-				<div className="ButtonStop">
-					<button onClick={() => { this.stop() }}> Stop</button>
-				</div>
-				<div className="ButtonSens">
-					<button onClick={() => { this.changeSens() }}> Changer de Sens</button>
-				</div>
-				<div className="ButtonAccelerer">
-					<button onClick={() => { this.accelerer() }}>Accelerer</button>
-				</div>
-				<div className="ButtonRalentir">
-					<button onClick={() => { this.ralentir() }}>Ralentir</button>
-				</div>
+
+				<button className="big-button" type="submit" onClick={() => { this.start() }}> Start</button>
+
+				<button className="big-button" onClick={() => { this.stop() }}> Stop</button>
+
+				<button className="big-button" onClick={() => { this.changeSens() }}> Changer de Sens</button>
+
+
+				<button className="big-button" onClick={() => { this.accelerer() }}>Accelerer</button>
+
+
+				<button className="big-button" onClick={() => { this.ralentir() }}>Ralentir</button>
+
 				<div className="chenillard">
 					<title> Chenillard </title>
 					{`Vitesse: ${this.state.chenillard.vitesse} Run: ${this.state.chenillard.run}  Sens: ${this.state.chenillard.sens}`}
