@@ -90,13 +90,12 @@
    text-transform:uppercase;
   }
 
-  .indication{
-text-align: center;
-   font-weight: bold;
-  }
+
 
 
   input[type=range].inputVitesse{
+  border-radius: 10px;
+  height:25px;
     -webkit-appearance: none;
      display: block;
      margin-left: auto;
@@ -121,10 +120,12 @@ text-align: center;
     font-family: inherit;
     text-align: center;
   }
+
   .chenillard{
     vertical-align: middle;
       display: block;
   }
+
 
   .logo{
     vertical-align: middle;
@@ -134,15 +135,12 @@ text-align: center;
 
   .rightLogo{
     vertical-align: middle;
-    float: right;
     width: 100px;
     height: 100px;
   }
 
   .leftLogo{
     vertical-align: middle;
-    float: left;
-    vertical-align: auto;
     width: 100px;
     height: 100px;
 }
