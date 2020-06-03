@@ -32,7 +32,7 @@ public class Chenillard extends Thread {
             //System.out.println("dans le while du chenillard"+ run);
             try {
                 if (sens == 1) {
-                    if (i == 5) {
+                    if (i == 5 || i==0) {
                         i = 1;
                     }
                     pc.write(new GroupAddress("0/0/" + i), true);
@@ -42,11 +42,14 @@ public class Chenillard extends Thread {
                     i++;
                 } else {
                     System.out.println("sens inverse");
-                    if (i == 0) {
+                    System.out.println("valeur de i" + i);
+                    if (i == 0 || i==5) {
                         i = 4;
                     }
 
                     pc.write(new GroupAddress("0/0/" + i), true);
+                    System.out.println("valeur de i de " + i);
+
                     TimeUnit.MILLISECONDS.sleep(vitesse);
                     pc.write(new GroupAddress("0/0/" + i), false);
                     TimeUnit.MILLISECONDS.sleep(vitesse);
@@ -118,6 +121,6 @@ public class Chenillard extends Thread {
         chenillard.put("vitesse", vitesse);
         chenillard.put("run", run);
         chenillard.put("sens", sens);
-return chenillard.toString();
+        return chenillard.toString();
     }
 }
