@@ -6,7 +6,7 @@ class App extends Component {
 
 	state = {
 		url: "/rest/chenillard/",
-		chenillard: ""
+		chenillard: {"vitesse": 600, "run":false, "sens":1}
 	}
 
 	constructor(props) {
@@ -86,26 +86,49 @@ class App extends Component {
 	}
 
 	async ralentir() {
-		console.log("Ralentir");
-		return fetch(this.state.url + "getRalentir")
-			.then(response => {
-				if (!response.ok) {
-					this.handleResponseError(response);
-				}
-				else {
-					this.refresh()
-				}
+		if (this.state.chenillard.vitesse <= 1000) {
 
-			})
-			.catch(error => {
-				this.handleError(error);
-			});
+			console.log("Ralentir");
+			return fetch(this.state.url + "getRalentir")
+				.then(response => {
+					if (!response.ok) {
+						this.handleResponseError(response);
+					}
+					else {
+						this.refresh()
+					}
+
+				})
+				.catch(error => {
+					this.handleError(error);
+				});
+		}
 	}
+
+	async accelerer() {
+		if (this.state.chenillard.vitesse >= 100) {
+			console.log("Accelrer");
+			return fetch(this.state.url + "getAccelerer")
+				.then(response => {
+					if (!response.ok) {
+						this.handleResponseError(response);
+					}
+					else {
+						this.refresh()
+					}
+
+				})
+				.catch(error => {
+					this.handleError(error);
+				});
+		}
+	}
+
 
 	async setVitesse(vitesse) {
 		console.log("Set Vitesse")
-		const chen=this.state.chenillard
-		const sendChen={ vitesse: vitesse, run: chen.run, sens: chen.sens }
+		const chen = this.state.chenillard
+		const sendChen = { vitesse: vitesse, run: chen.run, sens: chen.sens }
 		console.log(sendChen)
 		return fetch(this.state.url + "postSetVitesse", {
 			method: "POST",
@@ -126,12 +149,9 @@ class App extends Component {
 			});
 	}
 
-	recupVitesse=()=>{
-		if(!isNaN(this.vitesseRef.current.value)){
+	recupVitesse = () => {
 		this.setVitesse(this.vitesseRef.current.value)
-		}else{
-			alert("Veuillez rentrer un nombre pour la vitesse");
-		}
+		this.refresh()
 	}
 
 
@@ -156,7 +176,10 @@ class App extends Component {
 				<div className="ButtonSens">
 					<button onClick={() => { this.changeSens() }}> Changer de Sens</button>
 				</div>
-				<div className="ButtonSens">
+				<div className="ButtonAccelerer">
+					<button onClick={() => { this.accelerer() }}>Accelerer</button>
+				</div>
+				<div className="ButtonRalentir">
 					<button onClick={() => { this.ralentir() }}>Ralentir</button>
 				</div>
 				<div className="chenillard">
@@ -165,12 +188,13 @@ class App extends Component {
 				</div>
 
 				<form className="form" >
-					<p>
-						<label>
-							<input className="inputMessage" ref={this.vitesseRef} type="text" placeholder="Entrez une vitesse" />
+
+					<label>
+						Vitesse
 						</label>
-						<button className="sendButton" type="button" onClick={() => this.recupVitesse()}>Changer la vitesse</button>
-					</p>
+
+					<input className="inputMessage" ref={this.vitesseRef} type="range" placeholder="Entrez une vitesse" min="100" max="1000" onChange={this.recupVitesse} step="1" value={this.state.chenillard.vitesse} />
+
 				</form>
 
 			</div>
