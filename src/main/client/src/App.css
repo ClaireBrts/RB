@@ -131,7 +131,9 @@
     vertical-align: middle;
       width: 100px;
       height: 100px;
+      margin-left: -50px;
       position: fixed;
+    
   }
 
   .rightLogo{
@@ -149,7 +151,9 @@
 }
 
 .startStop{
+  
   position:fixed;
+
 }
 
 .logos{
