@@ -173,21 +173,27 @@ class App extends Component {
 			<div className="App">
 
 				<div className="chenillard">Chenillard</div>
-					{`Vitesse: ${this.state.chenillard.vitesse}`}
 
-					<div>{(this.state.chenillard.sens === -1) ? (<img className="leftLogo" src={leftLogo} alt="leftLogo" />) : null}</div>
+
+
 					<div>
+
+<center>
+					{(this.state.chenillard.sens === -1) ? (<img className="leftLogo" src={leftLogo} alt="leftLogo" />) : null}
+
 						{this.state.chenillard.run ?
 							(<img className="logo" src={playLogo} alt="playLogo" />)
 							: (<img className="logo" src={stopLogo} alt="stopLogo" />)
 						}
+						{(this.state.chenillard.sens === 1) ? (<img className="rightLogo" src={rightLogo} alt="rightLogo" />) : null}
+						</center>
+
 					</div>
 
 					<div>
-						{(this.state.chenillard.sens === 1) ? (<img className="rightLogo" src={rightLogo} alt="rightLogo" />) : null}
+
 					</div>
 
-				</div>
 				<div>
 					<button className="big-button" type="submit" onClick={() => { this.start() }}> Start</button>
 
@@ -204,7 +210,7 @@ class App extends Component {
 
 				<form >
 
-					<p className="vitesseText">Vitesse</p>
+					<p className="vitesseText">Vitesse {this.state.chenillard.vitesse}</p>
 
 					<input className="inputVitesse" ref={this.vitesseRef} type="range" placeholder="Entrez une vitesse" min="100" max="1000" onChange={this.recupVitesse} step="1" value={this.state.chenillard.vitesse} />
 
