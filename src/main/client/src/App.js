@@ -183,10 +183,8 @@ class App extends Component {
 						}
 					</center>
 
-					{(this.state.chenillard.sens === -1) ? (<img className="leftLogo" src={leftLogo} alt="leftLogo" />) : null}
-
-
-					{(this.state.chenillard.sens === 1) ? (<img className="rightLogo" src={rightLogo} alt="rightLogo" />) : null}
+					{(this.state.chenillard.sens === -1 & this.state.chenillard.run) ? (<img className="leftLogo" src={leftLogo} alt="leftLogo" />) : null}
+					{(this.state.chenillard.sens === 1 & this.state.chenillard.run) ? (<img className="rightLogo" src={rightLogo} alt="rightLogo" />) : null}
 
 				</div>
 
