@@ -22,5 +22,5 @@ Pour acceder à la partie KNX, il faut aller dans le dossier src/main/java/fr/es
 Dans le fichier KNX, vous pouvez rajouter des actions lors d'un clic sur un bouton de la maquette.
 Si vous souhaiter modifier des fonctionnalités du chenillard ou en rajouter, il faut aller dans le fichier Chenillard.java.
 
-En résumé, si vous souhaitez ajouter des fonctionnalités au chenillard, il faut dans un premier temps compléter le document Chenillard.java, puis dans le fichier KNX. Ensuite dans le package server, il faut également completer ChenillardJson. Et pour terminer, il faut ajouter votre requête dans le fichier ChenillardSvc. 
+En résumé, si vous souhaitez ajouter des fonctionnalités au chenillard, il faut dans un premier temps compléter le document Chenillard.java, puis dans le fichier KNX. Ensuite dans le package server, il faut également completer le fichier ChenillardJson. Et pour terminer, il faut ajouter votre requête dans le fichier ChenillardSvc. 
 
