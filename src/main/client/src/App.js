@@ -174,25 +174,22 @@ class App extends Component {
 
 				<div className="chenillard">Chenillard</div>
 
+				<div className="logos">
 
-
-					<div>
-
-<center>
-					{(this.state.chenillard.sens === -1) ? (<img className="leftLogo" src={leftLogo} alt="leftLogo" />) : null}
-
+					<center>
 						{this.state.chenillard.run ?
 							(<img className="logo" src={playLogo} alt="playLogo" />)
 							: (<img className="logo" src={stopLogo} alt="stopLogo" />)
 						}
-						{(this.state.chenillard.sens === 1) ? (<img className="rightLogo" src={rightLogo} alt="rightLogo" />) : null}
-						</center>
+					</center>
 
-					</div>
+					{(this.state.chenillard.sens === -1) ? (<img className="leftLogo" src={leftLogo} alt="leftLogo" />) : null}
 
-					<div>
 
-					</div>
+					{(this.state.chenillard.sens === 1) ? (<img className="rightLogo" src={rightLogo} alt="rightLogo" />) : null}
+
+				</div>
+
 
 				<div>
 					<button className="big-button" type="submit" onClick={() => { this.start() }}> Start</button>

@@ -131,16 +131,27 @@
     vertical-align: middle;
       width: 100px;
       height: 100px;
+      position: fixed;
   }
 
   .rightLogo{
+    float: right;
     vertical-align: middle;
     width: 100px;
     height: 100px;
   }
 
   .leftLogo{
+    float:left;
     vertical-align: middle;
     width: 100px;
     height: 100px;
+}
+
+.startStop{
+  position:fixed;
+}
+
+.logos{
+  margin-bottom: 100px;
 }
